@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reloj 03 digital</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Orbitron";
+            transition: all 0.4s ease;
+        }
+
+        section {
+            min-height: 100vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f0f8ff;
+            padding: 0 20px;
+        }
+
+        section .dark {
+            background: #24292d;
+        }
+
+        section .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 220px;
+            max-width: 560px;
+            width: 100%;
+            background: #fff;
+            box-shadow: 0 5px 10 px rgba(0, 0, 0, 0.2);
+            border-radius: 12px;
+            position: relative;
+        }
+
+        section .dark .container {
+            background: #323840;
+        }
+
+        section .container .icons i {
+            position: absolute;
+            right: 17px;
+            top: 17px;
+            height: 30px;
+            width: 30px;
+            background: #24292d;
+            color: #fff;
+            text-align: center;
+            line-height: 30px;
+            border-radius: 50%;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        section .dark .container .icons i {
+            background: #fff;
+            color: #323840;
+        }
+
+        .container .icons i.bi-sun {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        section .dark .container .icons i.bi-sun {
+            opacity: 1;
+            pointer-events: auto;
+            font-size: 16px;
+        }
+
+        section .container .time {
+            display: flex;
+            align-items: center;
+        }
+
+        .container .time .time-colon {
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        .time .time-colon .am_pm {
+            position: absolute;
+            top: 0;
+            right: -50px;
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        section .dark .time .time-colon .am_pm {
+            color: #fff;
+        }
+
+        .time .time-colon .time-text {
+            height: 100px;
+            width: 100px;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+            background: #f0f8ff;
+            border-radius: 6px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+        }
+
+        section .dark .time .time-colon .time-text {
+            background: #24292d;
+        }
+
+        .time .time-colon .time-text,
+        .time .time-colon .colon {
+            font-size: 35px;
+            font-weight: 600;
+        }
+
+        section .dark .time .time-text .num,
+        section .dark .time .colon {
+            color: #fff;
+        }
+
+        .time .time-colon .colon {
+            font-size: 40px;
+            margin: 0 10px;
+        }
+
+        .time .time-colon .time-text .text {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        section .dark .time .time-colon .text {
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <div class="container">
+
+            <div class="icons">
+                <i class="bi bi-sun"></i>
+                <i class="bi bi-moon"></i>
+            </div>
+
+            <div class="time">
+
+                <div class="time-colon">
+                    <div class="time-text">
+                        <span class="num hour_num">10</span>
+                        <span class="text">Hora</span>
+                    </div>
+                    <span class="colon">:</span>
+                </div>
+
+                <div class="time-colon">
+                    <div class="time-text">
+                        <span class="num min_num">45</span>
+                        <span class="text">Minutos</span>
+                    </div>
+                    <span class="colon">:</span>
+                </div>
+
+                <div class="time-colon">
+                    <div class="time-text">
+                        <span class="num sec_num">06</span>
+                        <span class="text">Segundos</span>
+                    </div>
+                    <span class="am_pm">AM</span>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <script>
+        let section = document.querySelector("section"),
+            icons = document.querySelector(".icons");
+
+        icons.onclick = () => {
+            section.classList.toggle("dark");
+        };
+
+        setInterval(() => {
+            let date = new Date(),
+                hour = date.getHours(),
+                min = date.getMinutes(),
+                sec = date.getSeconds();
+
+            let d;
+            d = hour < 12 ? "AM" : "PM";
+            hour = hour > 12 ? hour - 12 : hour;
+            hour = hour == 0 ? (hour = 12) : hour;
+
+            hour = hour < 10 ? "0" + hour : hour;
+            min = min < 10 ? "0" + min : min;
+            sec = sec < 10 ? "0" + sec : sec;
+
+            document.querySelector(".hour_num").innerText = hour;
+            document.querySelector(".min_num").innerText = min;
+            document.querySelector(".sec_num").innerText = sec;
+            document.querySelector(".am_pm").innerText = d;
+
+        }, 1000);
+    </script>
+
+</body>
+
+</html>

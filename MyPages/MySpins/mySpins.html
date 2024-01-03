@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title> 14 Spins </title>
+ 
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(400px,1fr));
+      grid-auto-rows: 230px;
+      place-items:center;
+      background: rgb(96, 95, 95);
+      gap: 3rem;
+    }
+    section {
+      background-color: transparent ;
+      border: 5px solid skyblue;
+      padding: 30px;
+      gap:15px;
+      margin: 15px;
+    }
+    h1 {display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .s1 {
+      background-color: transparent;
+    }
+  
+    /* spin 1 */
+    .spin-1 {
+      background: grey;
+        width: 100px;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        border: 8px solid;
+        border-color: #000 #0000;
+        animation: s1 1s infinite;
+     }
+    @keyframes s1 {
+        to{transform: rotate(.5turn)}
+    }
+  
+    /* spin 2 */
+    .spin-2 {
+      width: 100px;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      border: 8px solid lightblue;
+      border-right-color: orange;
+      animation: s2 1s infinite linear;
+    }
+    @keyframes s2 {
+      to{transform: rotate(1turn)}
+    }
+    /* spin 3 */
+    .s3 .spin-3 {
+      width: 100px;
+      padding: 8px;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: #25b09b;
+      --_m: 
+        conic-gradient(#0000 10%,#000),
+        linear-gradient(#000 0 0) content-box;
+      -webkit-mask: var(--_m);
+              mask: var(--_m);
+      -webkit-mask-composite: source-out;
+              mask-composite: subtract;
+      animation: s3 1s infinite linear;
+    }
+    @keyframes s3 {to{transform: rotate(1turn)}}
+    
+    /* spin 04 */
+    .spin-4 {
+      width: 100px;
+      --b: 8px;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      padding: 1px;
+      background: conic-gradient(#0000 10%,#f03355) content-box;
+      /* -webkit-mask: repeating-conic-gradient(#0000 0deg,#000 1deg 20deg,#0000 21deg 36deg), radial-gradient(farthest-side,#0000 calc(100% - var(--b) - 1px),#000 calc(100% - var(--b))); */
+      -webkit-mask-composite: destination-in;
+      mask-composite: intersect;
+      animation:s4 1s infinite steps(10);
+    }
+    @keyframes s4 {
+      to{transform: rotate(1turn)}
+    }
+
+    /* spin 5 */
+    .spin-5 {
+      width: 100px;
+      --b: 8px; 
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: #514b82;
+      /* -webkit-mask: repeating-conic-gradient(#0000 0deg,
+                                             #000 1deg 70deg,
+                                             #0000 71deg 90deg),
+        radial-gradient(farthest-side,#0000 calc(100% - var(--b) - 1px),#000 calc(100% - var(--b))); */
+      -webkit-mask-composite: destination-in;
+      mask-composite: intersect;
+      animation: s5 1s infinite;
+    }
+    @keyframes s5 {
+      to{transform: rotate(.4turn)}
+    }
+    
+    /* spin 06 */
+    .spin-6 {
+      width: 100px;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      padding: 3px;
+      background: 
+        radial-gradient(farthest-side,#ffa516 95%,#0000) 50% 0/12px 12px no-repeat,
+        radial-gradient(farthest-side,#0000 calc(100% - 5px),#ffa516 calc(100% - 4px)) content-box;
+      animation: s6 2s infinite ;
+    }
+    @keyframes s6 {
+      to{transform: rotate(1turn)}
+    }
+    
+    /* spin 07 */
+    .spin-7 {
+      width: 100px;
+      aspect-ratio: 1;
+      --_c: radial-gradient(farthest-side,#25b09b 92%,#0000);
+      background: 
+        var(--_c) top,
+        var(--_c) left,
+        var(--_c) right,
+        var(--_c) bottom;
+      background-size: 12px 12px;
+      background-repeat: no-repeat;
+      animation: s7 1s infinite;
+    }
+    @keyframes s7 {to{transform: rotate(.5turn)}}
+    
+    /* spin 08 */
+    .spin-8 {
+      width: 100px;
+      aspect-ratio: 1;
+      color: #f03355;
+      --_c: no-repeat radial-gradient(farthest-side,currentColor 92%,#0000);
+      background: 
+        var(--_c) 50% 0   /12px 12px,
+        var(--_c) 50% 100%/12px 12px,
+        var(--_c) 100% 50%/12px 12px,
+        var(--_c) 0    50%/12px 12px,
+        var(--_c) 50%  50%/12px 12px,
+        conic-gradient(from 90deg at 4px 4px,#0000 90deg,currentColor 0)
+        -4px -4px/calc(50% + 2px) calc(50% + 2px);
+      animation: s8 1s infinite linear;
+    }
+    @keyframes s8 {to{transform: rotate(.5turn)}}
+    
+    /* spin 09 */
+    .spin-9 {
+      width: 100px;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: 
+        radial-gradient(farthest-side,#f03355 95%,#0000) 50% 1px/12px 12px no-repeat,
+        radial-gradient(farthest-side,#0000 calc(100% - 14px),#ccc 0);
+      animation: s9 2s infinite linear;
+    }
+    @keyframes s9 {to{transform: rotate(1turn)}}
+    
+    /* spin 10 */
+    .spin-10 {
+      width: 100px;
+      aspect-ratio: 1;
+      color: #854f1d;
+      border-radius: 50%;
+      display: grid;
+      background: 
+        conic-gradient(from 90deg at 4px 4px,#0000 90deg,currentColor 0)
+        -4px -4px/calc(50% + 2px) calc(50% + 2px),
+        radial-gradient(farthest-side,currentColor 6px,#0000 7px calc(100% - 6px),currentColor calc(100% - 5px)) no-repeat;
+      animation: s10 2s infinite linear;
+      position: relative;
+    }
+    .spin-10:before {
+      content: "";
+      border-radius: inherit;
+      background: inherit;
+      transform: rotate(45deg);
+    }
+    @keyframes s10 {
+      to{transform: rotate(.5turn)}
+    }
+    
+    /* spin 11 */
+    .outer-circle {
+        position: relative;
+        height: 100px;
+        width: 100px;
+        background: radial-gradient(#14ffe9, #ffeb3b, #ff00e0);
+        border-radius: 50%;
+        animation: rotate 1.5s linear infinite;
+    }
+    .outer-circle span {
+        position: absolute;
+        height:100px;
+        width: 100px;
+        background: radial-gradient(#14ffe9, #ffeb3b, #ff00e0);
+        border-radius: 50%;
+    }
+    span:nth-child(1) {
+        filter: blur(5px);
+    }
+    span:nth-child(2) {
+        filter: blur(10px);
+    }
+    span:nth-child(3) {
+        filter: blur(25px);
+    }
+    span:nth-child(4) {
+        filter: blur(150px);
+    }
+    @keyframes rotate {
+        0% {
+            filter: hue-rotate(0deg);
+        }
+        100% {
+            filter: hue-rotate(360deg);
+        }
+    }
+      
+    /* spin-12 */
+    .outer-circle2 {
+      position: relative;
+      height: 100px;
+      width: 100px;
+      background: linear-gradient(#14ffe9, #ffeb3b, #ff00e0);
+      border-radius: 50%;
+      animation: rotate 1.5s linear infinite;
+    }
+    .outer-circle2 span {
+      position: absolute;
+      height: 100px;
+      width: 100px;
+      background: linear-gradient(#14ffe9, #ffeb3b, #ff00e0);
+      border-radius: 50%;
+    }
+    span:nth-child(1) {
+      filter: blur(5px);
+    }
+    span:nth-child(2) {
+      filter: blur(10px);
+    }
+    span:nth-child(3) {
+      filter: blur(25px);
+    }
+    span:nth-child(4) {
+      filter: blur(150px);
+    }
+    .inner-circle {
+      height: 80px;
+      width: 80px;
+      position: absolute;
+      background: black;
+      top: 10px;
+      left: 10px;
+      border-radius: 50%;
+      z-index: 9;
+    }
+    @keyframes rotate {
+      0% {
+          filter: hue-rotate(0deg);
+      }
+      100% {
+          filter: hue-rotate(360deg);
+      }
+    }
+
+    /* Spin 13 */
+    body section .s13 {
+      position: static;
+      top: -50%;
+      left: -50%;
+      transform: translate( -0%,-0%);
+    }
+    body section .s13 .container13 {
+      width: 100px;
+      height: 100px;
+    }
+    @keyframes animation13 {
+      0% {
+        stroke-dasharray: 1 98;
+        stroke-dashoffset: -105;
+      }
+      50% {
+        stroke-dasharray: 80 10;
+        stroke-dashoffset: -160;
+      }
+      100% {
+        stroke-dasharray: 1 98;
+        stroke-dashoffset: -300;
+      }
+    }
+    .s13 #spin13 {
+      transform-origin: center;
+      animation-name: animation13;
+      animation-duration: 1.2s;
+      animation-timing-function: cubic-bezier;
+      animation-iteration-count: infinite;
+    }
+  </style>
+</head>
+
+<body>
+  
+  <section>
+    <h1>Spin 1</h1>
+    <div class="s1">
+      <div class="spin-1"></div>
+    </div>
+  </section>
+
+  <section>
+    <h1>Spin 2</h1>
+    <div class="s2">
+      <div class="spin-2"></div>
+    </div>
+  </section>
+
+  <section>
+    <h1>Spin 3</h1>
+    <div class="s3">
+      <div class="spin-3"></div>
+    </div>
+  </section>
+
+  <section>
+    
+    <h1>Spin 4</h1>
+    <div class="s4">
+      <div class="spin-4"></div>
+    </div>
+  </section>
+
+  <section>
+    <h1>Spin 5</h1>
+    <div class="s5">
+      <div class="spin-5"></div>
+    </div>
+  </section>
+    
+  <section>
+    <h1>Spin 6</h1>
+    <div class="s6">
+      <div class="spin-6"></div>
+    </div>
+  </section>
+
+  <section>
+    <h1>Spin 7</h1>
+    <div class="s7">
+      <div class="spin-7"></div>
+    </div>
+  </section>
+
+  <section>
+    <h1>Spin 8</h1>
+    <div class="s8">
+      <div class="spin-8"></div>
+    </div>
+  </section>
+
+  <section>
+    <h1>Spin 9</h1>
+    <div class="s9">
+      <div class="spin-9"></div>
+    </div>
+  </section>
+
+  <section>
+    <h1>Spin 10</h1>
+    <div class="s10">
+      <div class="spin-10"></div>
+    </div>
+  </section>
+
+  <section>
+    <h1>Spin 11</h1>
+    <div class="s11">
+      <div class="spin-11"></div>
+      <div class="outer-circle">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h1>Spin 12</h1>
+    <div class="s12">
+      <div class="outer-circle2">
+        <div class="inner-circle"></div>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+  </section>
+    
+  <section>
+    <h1>Spin 13</h1>
+    <div class="s13">
+      <div class="container13">
+        <svg viewBox="0 0 100 100">
+          <defs>
+            <filter id="shadow">
+              <feDropShadow dx="0" dy="0" stdDeviation="1.5" 
+                flood-color="#fc6767"/>
+            </filter>
+          </defs>
+          <circle id="spin13" style="fill:transparent;stroke:#dd2476;stroke-width: 7px;stroke-linecap: round;filter:url(#shadow);" cx="50" cy="50" r="45"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h1>Spin 14</h1>
+    <div class="s12">
+      <div class="outer-circle2">
+        <div class="inner-circle"></div>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+  </section>
+
+
+<!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.0/anime.min.js'></script> -->
+
+</body>
+</html>

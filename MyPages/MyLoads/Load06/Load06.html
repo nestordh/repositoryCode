@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Load barra</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            background: rgb(230, 230, 230);
+        }
+        .loader {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .bar {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            width: 250px;
+            height: 35px;
+            border-radius: 4px;
+        }
+        .text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            color: white;
+            font-weight: 600;
+            font-size: 17px;
+            animation: fadein 0.9s linear infinite alternate both;
+            display: none;
+            z-index: 2;
+        }
+        @keyframes fadein {
+            from {opacity: 0.3;}
+            to {opacity: 1;}
+        }
+        .loaded {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #444444;
+            height: 100%;
+            max-width: 100%;
+            width: 0%;
+            border-radius: 2px;
+            transition: width .3s linear;
+        }
+        .spinner {
+            position: absolute;
+            transition: height 1s ease-in, opacity 1s ease-in;
+        }
+        .spinner:before {
+            content: "";
+            position: absolute;
+            top: 0px;
+            width: 5.5px;
+            height: 5.5px;
+            border-radius: 100px;
+            background-color: #404040;
+            z-index: 1;
+        }
+        @keyframes bar {
+            0% {transform: translate(-50%, -50%) rotate(0deg);}
+            100% {transform: translate(-50%, -50%) rotate(360deg);}
+        }
+    </style>
+</head>
+<body>
+ 
+    <div class="loader">
+        <div class="bar">
+            <div class="text">Loaded!</div>
+            <div class="loaded"></div>
+        </div>
+    </div>
+
+    <script>
+        for (var i = 0; i < 100; i++) {
+            var radius = rnd(160, 340);
+            var modifier = radius / 160;
+            $(".loader").append('<div class="spinner" style="animation: bar ' + 3.5 * modifier + "s linear infinite; height: " + radius + "px; animation-delay: -" + rnd(40, 80) / 10 + 's"></div>');
+        }
+
+        var runloader = setInterval(loader, 30);
+
+        function loader() {
+            if (rnd(0, 1)) {
+                const unloaded = $(".spinner").filter(function () {
+                    return $(this).height() || 0 > 0;
+                });
+                const loaded = 100 - unloaded.length;
+
+                $(".loaded").css("width", loaded + "%");
+
+                if (loaded == 100) {
+                    clearInterval(runloader);
+                    $(".text").css("display", "block");
+                    return;
+                }
+
+                const index = rnd(0, unloaded.length - 1);
+                unloaded[index].style.height = 0;
+                unloaded[index].style.opacity = 0;
+            }
+        }
+
+        function rnd(m, n) {
+            return Math.floor(Math.random() * (n - m + 1)) + m;
+        }
+    </script>
+</body>
+</html>

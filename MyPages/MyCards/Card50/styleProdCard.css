@@ -1,0 +1,335 @@
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
+
+
+:root {
+  --dark-color-lighten: #f2f5ff;
+  --red-card: #a62121;
+  --blue-card: #4bb7e6;
+  --btn: #141414;
+  --btn-hover: #3a3a3a;
+  --text: #fbf7f7;
+
+  --size: 400px;
+  --blue: #aad5ff;
+  --lb: rgba(0, 0, 0, 0.5);
+
+}
+
+
+*,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--dark-color-lighten);
+  font-family: "Montserrat", sans-serif;
+}
+button {
+  font-family: "Montserrat", sans-serif;
+  display: inline-block;
+  border: none;
+  outline: none;
+  border-radius: 0.2rem;
+  color: var(--text);
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: 100%;
+  user-select: none;
+}
+
+/*===== CARD =====*/
+.container {
+  height: 100%;
+  width: 850px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.card {
+  position: relative;
+  padding: 1rem;
+  width: 350px;
+  height: 450px;
+  box-shadow: -1px 15px 30px -12px rgb(32, 32, 32);
+  border-radius: 0.9rem;
+  background-color: var(--red-card);
+  color: var(--text);
+  cursor: pointer;
+}
+
+.card-blue {
+  background: var(--blue-card);
+}
+
+.product-image {
+  height: 230px;
+  width: 100%;
+  transform: translate(0, -1.5rem);
+  transition: transform 500ms ease-in-out;
+  filter: drop-shadow(5px 10px 15px rgba(8, 9, 13, 0.4));
+}
+.product-info {
+  text-align: center;
+}
+
+.card:hover .product-image {
+  transform: translate(-1.5rem, -7rem) rotate(-20deg);
+}
+
+.product-info h2 {
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+.product-info p {
+  margin: 0.4rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+.price {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+.btn {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 0.8rem;
+}
+.buy-btn {
+  background-color: var(--btn);
+  padding: 0.6rem 3.5rem;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: 300ms ease;
+}
+.buy-btn:hover {
+  background-color: var(--btn-hover);
+}
+.fav {
+  box-sizing: border-box;
+  background: #fff;
+  padding: 0.5rem 0.5rem;
+  border: 1px solid#000;
+  display: grid;
+  place-items: center;
+}
+
+.svg {
+  height: 25px;
+  width: 25px;
+  fill: #fff;
+  transition: all 500ms ease;
+}
+
+.fav:hover .svg {
+  fill: #000;
+}
+
+@media screen and (max-width: 800px) {
+  body {
+    height: auto;
+  }
+  .container {
+    padding: 2rem 0;
+    width: 100%;
+    flex-direction: column;
+    gap: 3rem;
+  }
+}
+
+
+/* shoe2 */
+.contshoe {
+  display: grid;
+  justify-items: center;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  background-color: var(--blue);
+  color: cornsilk;
+  font-family: "Roboto Condensed", sans-serif;
+}
+.container2 {
+  width: var(--size);
+  height: var(--size);
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
+  grid-template-rows: repeat(2, 50%);
+  justify-items: center;
+  align-items: center;
+  filter: drop-shadow(0px 0px 7px rgba(1, 1, 1, .7));
+}
+.productImage2 {
+  grid-column: 1/span 2;
+  grid-row: 1 /span 2;
+  width: var(--size);
+  height: var(--size);
+  background-size: cover;
+  clip-path: polygon(
+    20% 20%,
+    50% 20%,
+    50% 20%,
+    80% 20%,
+    80% 50%,
+    80% 50%,
+    80% 80%,
+    50% 80%,
+    50% 80%,
+    20% 80%,
+    20% 50%,
+    20% 50%
+  );
+  transition: all 0.7s cubic-bezier(0.895, 0.03, 0.685, 0.22);
+}
+.shoeImg2 {
+  background-image: url(https://source.unsplash.com/l8p1aWZqHvE/1000x1000);
+  background-color: #148bff;
+}
+.shirtImg2 {
+  background-image: url(https://source.unsplash.com/49wtmkUVmFQ/1000x1000);
+  background-color: #aace29;
+}
+h4,  ul, span {
+  padding: 0;
+  margin: 0;
+}
+.size2, .color2 {
+  grid-column: 1;
+  grid-row: 1;
+  justify-self: center;
+  z-index: 1;
+  opacity: 0;
+  transition: all 0.6s cubic-bezier(0.895, 0.03, 0.685, 0.22);
+}
+.size2 ul li, .color2 ul li {
+  list-style: none;
+  width: 20px;
+  height: 20px;
+  margin: 5px;
+  padding: 5px;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.color2 {
+  grid-column: 2;
+  grid-row: 2;
+}
+.color2 ul li span {
+  width: 10px;
+  height: 10px;
+  border-radius: 50px;
+  display: inline-block;
+}
+.red2 {
+  background-color: red;
+}
+.yellow2 {
+  background-color: greenyellow;
+}
+.blue2 {
+  background-color: #0070ee;
+}
+.price2 {
+  grid-column: 2;
+  grid-row: 1;
+  justify-self: center;
+  z-index: 1;
+  opacity: 0;
+  transition: all 0.6s cubic-bezier(0.895, 0.03, 0.685, 0.22);
+}
+.price2 h4 {
+  margin-bottom: 8px;
+}
+.price2 span {
+  width: 20px;
+  height: 20px;
+  padding: 5px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.productName2 {
+  grid-column: 1;
+  grid-row: 2;
+  align-self: center;
+  justify-self: center;
+  z-index: 1;
+  transition: all 0.7s cubic-bezier(0.895, 0.03, 0.685, 0.22);
+}
+
+.productImage2:hover {
+  clip-path: polygon(
+    20% 0%,
+    50% 0%,
+    50% 20%,
+    100% 20%,
+    100% 50%,
+    80% 50%,
+    80% 100%,
+    50% 100%,
+    50% 80%,
+    0% 80%,
+    0% 50%,
+    20% 50%
+  );
+  transform: rotate(-15deg);
+  transition: all 0.4s cubic-bezier(0.86, 0, 0.07, 1);
+}
+.productImage2:hover ~ * {
+  opacity: 1;
+  transform: rotate(-15deg);
+  transition: all 0.4s cubic-bezier(0.86, 0, 0.07, 1);
+}
+.credits2{
+    color:white;
+    font-size: 1.2rem;
+    grid-column: 1 / -1 ;
+    justify-self: center;
+    text-align: center;
+}
+
+/* tarjeta 3 */
+
+.tarj3{
+  height: 80vh;
+  background: #091540;
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-image: url(../../Images/images\ \(4\).jpg); */
+  background-size: cover;
+}
+.img3 {
+  width: auto;
+  height: 300px; ;
+}
+.tarjeta3{
+  padding: 20px;
+  background: rgba( 255, 255, 255, 0.615);
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  width: 300px;
+  height: 400px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+.tarjeta3:hover{
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    scale: 1.05;
+    background: white;
+}

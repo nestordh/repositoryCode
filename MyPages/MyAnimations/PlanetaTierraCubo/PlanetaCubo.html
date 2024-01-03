@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planeta tierra en cubo</title>
+    <style>
+        body {
+            overflow: hidden;
+            height: 100vh;
+            perspective: 64rem;
+            background: #000;
+            font-size: 1vmin;
+        }
+        div {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform-style: preserve-3d;
+        }
+        .cubo {
+            transform: rotateX(-35deg) rotateY(45deg);
+        }
+        .rotor {
+            animation: a 13s linear infinite;
+        }
+        @keyframes a {
+            to {transform: rotateY(1turn);}
+        }
+        .planeta {
+            margin: -16em;
+            width: 32em;
+            height: 32em;
+            background: url(https://shorturl.at/amADX) no-repeat 0 0/400% 300%;
+        }
+        .planeta:nth-child(1) {
+            transform: rotateY(0deg) translateZ(16em);
+            background-position: -32em -32em;
+        }
+        .planeta:nth-child(2) {
+            transform: rotateY(90deg) translateZ(16em);
+            background-position: -64em -32em;
+        }
+        .planeta:nth-child(3) {
+            transform: rotateY(180deg) translateZ(16em);
+            background-position: -96em -32em;
+        }
+        .planeta:nth-child(4) {
+            transform: rotateY(270deg) translateZ(16em);
+            background-position: 0em -32em;
+        }
+        .planeta:nth-child(5) {
+            transform: rotateX(90deg) translateZ(16em);
+            background-position: -32em 0em;
+        }
+        .planeta:nth-child(6) {
+            transform: rotateX(-90deg) translateZ(16em);
+            background-position: -32em -64em;
+        }
+    </style>
+</head>
+<body>
+    <div class="cubo">
+            <div class="rotor">
+                <div class="planeta"></div>
+                <div class="planeta"></div>
+                <div class="planeta"></div>
+                <div class="planeta"></div>
+                <div class="planeta"></div>
+                <div class="planeta"></div>
+            </div>
+        </div>
+</body>
+</html>

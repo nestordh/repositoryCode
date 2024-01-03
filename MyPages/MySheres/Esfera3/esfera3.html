@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esfera 3</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <style>
+        body {
+            background: black;
+            overflow: hidden;
+            justify-content: center;
+            align-items: center;
+            perspective: 1000px;
+        }
+        h1{
+            color: red;
+        }
+        .container {
+            position: relative;
+            display: grid;
+            grid-template-rows: repeat(20, 5vh);
+            grid-template-columns: repeat(20, 5vw);
+            transform-style: preserve-3d;
+        }
+        .monitor {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            transform-style: preserve-3d;
+        }
+        .camera {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            transition: 500ms;
+        }
+        .camera.o-y {
+            transform: rotateY(-30deg);
+        }
+        .vr {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 350px;
+            height: 350px;
+            transform: translate(-50%, -50%);
+            transform-style: preserve-3d;
+        }
+        .vr_layer {
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(0, 153, 255, 0.006);
+            border-radius: 10px;
+            transform: preserve-3d;
+        }
+        .vr_layer_item {
+            width: 70%;
+            height: 70%;
+            border: 3px solid #fff;
+            border-radius: 100%;
+            background: rgba(0, 0, 0, 0.05);
+            -webkit-animation: sphere 3000ms cubic-bezier(0.215, 0.61, 0.355, 1) alternate infinite, color 5000ms linear alternate infinite;
+            animation: sphere 3000ms cubic-bezier(0.215, 0.61, 0.355, 1) alternate infinite, color 5000ms linear alternate infinite;
+            transition: 500ms;
+        }
+        @keyframes sphere {
+            0% {transform: scale(0) rotateZ(45deg);}
+            50% {transform: scale(0) rotateZ(45deg);}
+            100% {transform: scale(1) rotateZ(45deg);}
+        }
+        @keyframes color {
+            0% {border-color: #f55;}
+            50% {border-color: #55f;}
+            100% {border-color: #5f5;}
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Esfera3</h1>
+        <div class="monitor">
+            <div class="camera o-x">
+                <div class="camera o-y">
+                    <div class="camera o-z">
+                        <div class="vr">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const SIZE = 350
+        const LAYER = 20
+
+        $(document).ready(function () {
+            var container = $(".vr")[0];
+
+            for (var i = 1; i <= LAYER; i++) {
+
+                var outer = document.createElement('div');
+                outer.classList.add("vr_layer");
+                outer.style.transform = "translateZ(" + ((i * SIZE / LAYER) - (SIZE / 2)) + "px)";
+                console.log(i, "translateZ(" + ((i * SIZE / LAYER) - (SIZE / 2)) + "px)");
+
+                var inner = document.createElement('div');
+                inner.classList.add("vr_layer_item");
+                inner.style.animationDelay = i * -210 + "ms";
+
+                outer.appendChild(inner);
+                container.appendChild(outer);
+            }
+        });
+    </script>
+</body>
+</html>

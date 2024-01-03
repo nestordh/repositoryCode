@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Madera con Fuego</title>
+    <style>
+        body {
+            background-color: rgba(210, 210, 100, 0.7);
+        }
+        .fuego {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -25%);
+            height: 20vw;
+            width: 20vw;
+        }
+        .flamas {
+            position: absolute;
+            bottom: 40%;
+            left: 50%;
+            width: 60%;
+            height: 60%;
+            transform: translateX(-50%) rotate(45deg);
+        }
+        .flama {
+            position: absolute;
+            right: 0%;
+            bottom: 0%;
+            width: 0%;
+            height: 0%;
+            background-color: #ffdc01;
+            border-radius: 1vw;
+        }
+        .flama:nth-child(2n + 1) {
+            animation: flameado 1.5s ease-in infinite, flama 1.5s ease-in infinite;
+        }
+        .flama:nth-child(2n) {
+            animation: flamaunif 1.5s ease-in infinite, flama 1.5s ease-in infinite;
+        }
+        .flama:nth-child(1) {
+            animation-delay: 0s;
+        }
+        .flama:nth-child(2) {
+            animation-delay: 0.375s;
+        }
+        .flama:nth-child(3) {
+            animation-delay: 0.75s;
+        }
+        .flama:nth-child(4) {
+            animation-delay: 1.125s;
+        }
+        .flama:nth-child(5) {
+            animation-delay: 1.35s;
+        }
+        .base {
+            position: absolute;
+            bottom: 25%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            height: 15%;
+        }
+        .base:before, .base:after {
+            position: absolute;
+            content: "";
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(20deg);
+            height: 100%;
+            width: 100%;
+            border-radius: 1vw;
+            background-color: #70392f;
+        }
+        .base:before {
+            transform: translate(-50%, -50%) rotate(-20deg);
+            background-color: #612e25;
+        }
+
+        @keyframes flama{
+            0%,
+            100% {
+                width: 0%;
+                height: 0%;
+            }
+            25% {
+                width: 100%;
+                height: 100%;
+            }
+            0% {
+                background-color: #ffdc01;
+                z-index: 1000000;
+            }
+            40% {
+                background-color: #fdac01;
+                z-index: 1000000;
+            }
+            60% {
+                background-color: #fd7f01;
+                z-index: 1000000;
+            }
+            100% {
+                background-color: #f74610;
+                z-index: -10;
+            }
+        }
+        @keyframes flameado {
+            0% {right: 0%;
+                bottom: 0%;
+            }
+            25% {right: 1%;
+                bottom: 2%;
+            }
+            100% {right: 150%;
+                bottom: 170%;
+            }
+        }
+        @keyframes flamaunif {
+            0% {right: 0%;
+                bottom: 0%;}
+            25% {right: 2%;
+                bottom: 1%;}
+            100% {right: 170%;
+                bottom: 150%;}
+        }
+    </style>
+</head>
+<body>
+    <div class="fuego">
+        <div class="flamas">
+            <div class="flama"></div>
+            <div class="flama"></div>
+            <div class="flama"></div>
+            <div class="flama"></div>
+            <div class="flama"></div>
+        </div>
+        <div class="base"></div>
+    </div>
+</body>
+</html>

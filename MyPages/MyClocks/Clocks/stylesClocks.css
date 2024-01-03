@@ -1,0 +1,256 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+:root{ /*usados en el footer */
+    --main-background:#121a29;
+    --text-color:#fafbfc;
+    --text-gray:#fefefe;
+    --text-heading-gray: #f4f5f6;
+    --text-primary:#fafbfc;
+    --button-color: #404652;
+    --button-border:#6b707c;
+  }
+body{
+    background: #0aafe6;
+    margin: 35px;
+    /* display: inline-block; */
+}
+
+
+
+header{
+    background: red;
+    padding: 30px;
+    /* display: flex; */
+    margin: 10px;
+    /* display: flexbox; */
+    
+}
+.container {
+    width: 420px;
+    height: 420px;
+    display: flex;
+    flex-direction: row;
+    background: green;
+    justify-content: center;
+    align-items: center;
+
+}
+.container .item {
+    background: rgb(255, 0, 0);
+    width: 300px;
+    height: 300px;
+    margin: 50px;
+    /* display: inline-block; */
+}
+.item1{
+    background-color: gold;
+}
+.item2 {
+    background-color: black;
+    position: relative;
+}
+.item3 {
+    background-color: skyblue;
+}
+.item4 {
+    background-color: violet;
+}
+.item5 {
+    background-color: lavender;
+}
+
+
+
+
+/* .container-box {
+    background: var(--main-background);
+    min-height: 40vh;
+    width: 400px;
+    margin: auto;
+    padding: 30px 50px 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+} */
+/* .container-clock1{
+    width:100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px; 
+   ;
+} */
+
+/* estilos para reloj con alarma 1  */
+.container1{
+    padding: 0 10px;
+    min-height: 100vh;
+    background:pink;
+
+
+}
+.wrapper, .content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.wrapper{
+width: 440px;
+padding: 30px 30px 38px;
+background: #fff;
+border-radius: 10px;
+flex-direction: column;
+box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+.wrapper img{
+max-width: 103px;
+}
+.wrapper .clock1{
+font-size: 38px;
+font-weight: 500;
+margin: 30px 0;
+}
+.wrapper .content{
+width: 100%;
+justify-content: space-between;
+}
+.content .disable{
+cursor: no-drop;
+}
+.content .column{
+padding: 0 10px;
+border-radius: 5px;
+border: 1px solid #bfbfbf;
+width: calc(100% / 3 - 5px);
+}
+.content .disable .column{
+opacity: 0.6;
+pointer-events: none;
+}
+.column select{
+width: 100%;
+height: 53px;
+border: none;
+outline: none;
+background: none;
+font-size: 19px;
+}
+.wrapper button{
+width: 100%;
+border: none;
+outline: none;
+color: #fff;
+cursor: pointer;
+font-size: 20px;
+padding: 17px 0;
+margin-top: 20px;
+border-radius: 5px;
+background: #4A98F7;
+}
+
+
+/* Reloj2 */
+.container-clock2{
+    background: green;
+}
+.container2 {
+    height: 100%;
+    background: radial-gradient(ellipse at center, #0a2e38 0%, red 70%);
+}
+.parrafo2 {
+    margin: 0;
+    padding: 0;
+}
+.clock2 {
+    font-family: "Share Tech Mono", monospace;
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: #aed8e7;
+    text-shadow: 0 0 20px #0aafe6, 0 0 20px rgba(10, 175, 230, 0);
+}
+
+
+/* Reloj 3 */
+.container3{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	background: #060a1f;
+}
+#clock3 h2 {
+	position: relative;
+	display: block;
+	color: #fff;
+	text-align: center;
+	margin: 10px 0;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.4em;
+	font-size: 0.8em;
+}
+#clock3 #time3 {
+	display: flex;
+}
+#clock3 #time3 div {
+	position: relative;
+	margin: 0 5px;
+	-webkit-box-reflect: below 1px linear-gradient(transparent,#0004);
+}
+#clock3 #time3 div span {
+	position: relative;
+	display: block;
+	width: 100px;
+	height: 80px;
+	background: #2196f3;
+	color: #fff;
+	font-weight: 300;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 3em;
+	z-index: 10;
+	box-shadow: 0 0 0 1px rgba(0,0,0,.2);
+}
+#clock3 #time3 div span:nth-child(2) {
+	height: 30px;
+	font-size: 0.7em;
+	letter-spacing: 0.2em;
+	font-weight: 500;
+	z-index: 9;
+	box-shadow: none;
+	background: #127fd6;
+	text-transform: uppercase;
+}
+#clock3 #time3 div:nth-last-child(2) span {
+	background: #ff006a;
+}
+#clock3 #time3 div:nth-last-child(2) span:nth-child(2) {
+	background: #ec0062;
+}
+#clock3 #time3 div:nth-last-child(1) span {
+	position: absolute;
+	bottom: 0;
+	width: 60px;
+	height: 40px;
+	font-size: 1.5em;
+	background: #fff;
+	color: #000;
+	-webkit-box-reflect: below 1px linear-gradient(transparent,#0004);
+}
+
+
+/* Reloj 4 */
+

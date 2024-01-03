@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeria 04</title>
+    <style>
+        *{
+            margin:0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        :root{
+            --background: #3c3430;
+            --background-card: #68626c;
+        }
+        .background{
+            background-color: var(--background);
+            display: grid;
+            place-items: center;
+            height: 100vh;
+        }
+        .gallery{
+            display: flex;
+            left: calc(50% - 330px);
+        }
+        .card{
+            position: relative;
+            left: 0;
+            width: 130px;
+            height: 190px;
+            background-color: var(--background-card);
+            border-radius: 8px;
+            transition: 0.5s ease-in-out;
+            overflow: hidden;
+            box-shadow: 0 5px 12px rgb(0,0,0, 0.5);
+        }
+        .card:not(:first-child){
+            margin-left: -45px;
+        }
+        .card:hover {
+            transform: translateY(-16px);
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .card:hover ~ .card {
+            left: 55px;
+        }
+        .card img {
+            height: 190px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="background">
+        <div class="gallery">
+            
+            <div class="card">
+                <figure>
+                    <img src="/Images/images (6).jpg">
+                </figure>
+            </div>
+
+            <div class="card">
+                <figure>
+                    <img src="/Images/images (1).jpg" alt="">
+                </figure>
+            </div>
+
+            <div class="card">
+                <figure>
+                    <img src="/Images/images (2).jpg" alt="">
+                </figure>
+            </div>
+
+            <div class="card">
+                <figure>
+                    <img src="/Images/images (3).jpg" alt="">
+                </figure>
+            </div>
+
+            <div class="card">
+                <figure>
+                    <img src="/Images/images (4).jpg" alt="">
+                </figure>
+            </div>
+
+            <div class="card">
+                <figure>
+                    <img src="/Images/images (5).jpg" alt="">
+                </figure>
+            </div>
+
+        </div>
+    </div>
+   
+</body>
+</html>

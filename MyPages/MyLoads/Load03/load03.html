@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Load 3</title>
+
+  <style>
+    body {
+      position: relative;
+      margin: 0;
+      font-family: "Roboto", sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: 100vh;
+    }
+
+    .loader {
+      z-index: 2;
+      position: fixed;
+      height: 40px;
+      width: 40px;
+      box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+      border-radius: 50%;
+      background: hsla(35, 79%, 68%, 1);
+      background: linear-gradient(90deg,
+          hsla(35, 79%, 68%, 1) 0%,
+          hsla(286, 44%, 49%, 1) 100%);
+      background: -moz-linear-gradient(90deg,
+          hsla(35, 79%, 68%, 1) 0%,
+          hsla(286, 44%, 49%, 1) 100%);
+      background: -webkit-linear-gradient(90deg,
+          hsla(35, 79%, 68%, 1) 0%,
+          hsla(286, 44%, 49%, 1) 100%);
+      filter: progid: DXImageTransform.Microsoft.gradient(startColorstr="#EEB86D", endColorstr="#9946B2", GradientType=1);
+      animation: jump 3s forwards ease-in-out;
+    }
+
+    .loader-text {
+      top: 52vh;
+      z-index: 1;
+      position: fixed;
+      display: flex;
+      justify-content: center;
+      gap: 5px;
+    }
+
+    .shadow {
+      position: absolute;
+      top: 52vh;
+      background: rgba(0, 0, 0, 0.5);
+      height: 5px;
+      width: 60px;
+      filter: blur(5px);
+      border-radius: 40%;
+    }
+
+    .dot {
+      font-size: 2.5rem;
+      animation: fadeIn 1s ease-in-out infinite;
+    }
+
+    .container {
+      opacity: 0;
+      z-index: 2;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      animation: fadeIn 1s ease-in-out 3s forwards;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0;}
+      100% {opacity: 1;}
+    }
+
+    @keyframes jump {
+      0% {
+        transform: translateY(10px);
+        height: 35px;
+      }
+
+      25% {
+        transform: translateY(-40px);
+        height: 40px;
+      }
+
+      50% {
+        transform: translateY(10px);
+        height: 35px;
+      }
+
+      80% {
+        transform: translateY(-40px);
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+      }
+
+      100% {
+        border-radius: 0;
+        width: 100vh;
+        height: 100vh;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="loader"></div>
+  <div class="shadow"></div>
+  <div class="loader-text">
+    <h3>Loading</h3>
+    <div class="dot">.</div>
+    <div class="dot">.</div>
+    <div class="dot">.</div>
+  </div>
+  <div class="container">
+    <h1> Ya esta cargado tu contenido</h1>
+  </div>
+</body>
+
+</html>

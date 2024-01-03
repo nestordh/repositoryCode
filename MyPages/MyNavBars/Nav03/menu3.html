@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu 3</title>
+  <style>
+    body {
+      background-color: #333;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+    nav {
+      height: 70px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    }
+    nav ul {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    nav a {
+      text-decoration: none;
+      font-size: 18px;
+      color: white
+      ;
+      padding: 10px;
+      font-weight: bold;
+      padding: 10px;
+    }
+    nav li {
+      position: relative;
+    }
+    nav a:hover {
+      text-decoration: underline;
+      text-decoration-color: purple;
+      text-underline-offset: 20px;
+      text-decoration-thickness: 8px;
+    }
+    .submenu {
+      opacity: 0;
+      position: absolute;
+      top: 25px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: white;
+      width: 130px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+      border-radius: 5px;
+    }
+    .submenu ul {
+      flex-direction: column;
+      gap: 10px;
+    }
+    .submenu li {
+      list-style: none;
+      width: 130px;
+      text-align: center;
+      cursor: pointer;
+      padding-block: 5px;
+      border-radius: 5px;
+    }
+    .submenu li:hover {
+      background: purple;
+      color: white;
+      width: 100%;
+    }
+    .menu:hover .submenu {
+      opacity: 1;
+    }
+    .submenu:hover {
+      opacity: 1;
+    }
+  </style>
+
+</head>
+
+<body>
+  <nav>
+    <ul>
+      <li><a href="#">Inicio</a></li>
+      <li><a href="#">Productos</a></li>
+      <li class="menu">
+        <a href="#">Notificaciones</a>
+        <div class="submenu">
+          <ul>
+            <li>Todas</li>
+            <li>Grupales</li>
+            <li>Individuales</li>
+          </ul>
+        </div>
+      </li>
+      <li><a href="#">Contacto</a></li>
+    </ul>
+  </nav>
+</body>
+
+</html>

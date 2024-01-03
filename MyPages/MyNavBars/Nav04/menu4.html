@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu 4</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: rgb(117, 48, 117);
+      display: flex;
+      align-items: center;
+      font-family: sans-serif;
+    }
+
+    aside {
+      margin-left: 5px;
+      position: relative;
+      width: 100px;
+      height: 350px;
+      background: #bab8b8e0;
+      float: left;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      border-radius: 10px;
+    }
+
+    .icon {
+      margin: 10px 0;
+      cursor: pointer;
+      color: rgb(122, 8, 120);
+    }
+
+    .burger {
+      position: absolute;
+      font-size: 1.5rem;
+      top: 5px;
+      right: 10px;
+    }
+
+    .burger:hover {
+      color: rgb(255, 255, 255);
+    }
+
+    .list {
+      position: absolute;
+      left: 25px;
+      font-size: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .row {
+      display: flex;
+      flex-direction: row;
+      max-width: fit-content;
+      justify-content: center;
+      align-items: center;
+      color: rgb(122, 8, 120);
+      gap: 10px;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .row:hover {
+      color: rgb(255, 255, 255);
+      scale: 1.2;
+    }
+
+    .row:hover .icon {
+      color: rgb(255, 255, 255);
+    }
+
+    .long {
+      width: 250px;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .short {
+      width: 100px;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .hide {
+      display: none;
+    }
+
+    .show {
+      display: block;
+    }
+  </style>
+
+</head>
+
+<body>
+  <aside id="list">
+    <i class="fas fa-hamburger icon burger" id="burger"></i>
+    <div class="list">
+      <div class="row">
+        <i class="fas fa-home icon"></i><span class="text hide">Inicio</span>
+      </div>
+      <div class="row">
+        <i class="fas fa-info-circle icon"></i><span class="text hide">Informacion</span>
+      </div>
+      <div class="row">
+        <i class="fas fa-envelope icon"></i><span class="text hide">Contacto</span>
+      </div>
+    </div>
+  </aside>
+
+  <script>
+    const burgerIcon = document.getElementById('burger');
+    const list = document.getElementById('list');
+    const text = document.getElementsByClassName('text');
+    let isBurger = true;
+
+    burgerIcon.addEventListener('click', () => {
+      if (isBurger) {
+        burgerIcon.classList.remove('fas', 'fa-hamburger');
+        burgerIcon.classList.add('fas', 'fa-times');
+        list.classList.remove('short');
+        list.classList.add('long');
+        for (let i = 0; i < text.length; i++) {
+          text[i].classList.remove('hide');
+          text[i].classList.add('show');
+        }
+
+      } else {
+        burgerIcon.classList.remove('fas', 'fa-times');
+        burgerIcon.classList.add('fas', 'fa-hamburger');
+        list.classList.remove('long');
+        list.classList.add('short');
+        for (let i = 0; i < text.length; i++) {
+          text[i].classList.remove('show');
+          text[i].classList.add('hide');
+        }
+      }
+
+      isBurger = !isBurger;
+    });
+  </script>
+
+</body>
+
+</html>

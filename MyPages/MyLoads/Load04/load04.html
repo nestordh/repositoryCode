@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loading Lineal</title>
+    <style>
+        *{
+            margin: 0;
+            background: rgb(230, 230, 230);
+        }
+        h1{
+            display: flex;
+            justify-content: center;
+            margin-top: 100px;
+        }
+        .loader {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            column-gap: 5px;
+            margin: 30px;
+        }
+        .loader_dot{
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background-color: #5e74a5;
+            opacity: 0.5;
+            border-radius: 50%;
+            animation: scale-up 1000ms var(--d) linear infinite;
+        }
+        @keyframes scale-up{
+            25% {
+                opacity: 1;
+                scale: 1.5;
+            }
+            50% {
+                scale: 1;
+            }
+        }
+    </style>
+</head>
+
+<body> 
+    <h1>Loading Lineal</h1>
+    <div class="loader">
+        <span class="loader_dot" style="--d: 100ms"> </span>
+        <span class="loader_dot" style="--d: 200ms"> </span>
+        <span class="loader_dot" style="--d: 300ms"> </span>
+        <span class="loader_dot" style="--d: 400ms"> </span>
+        <span class="loader_dot" style="--d: 600ms"> </span>
+        <span class="loader_dot" style="--d: 800ms"> </span>
+        <span class="loader_dot" style="--d: 1000ms"> </span>
+    </div>    
+</body>
+
+</html>

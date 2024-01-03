@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tarjeta 13</title>
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: "Roboto", sans-serif;
+      background-image: url(../../../Images/bg.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    .menu-card {
+      position: relative;
+      height: 600px;
+      width: 300px;
+      background-color: #ffffffb2;
+      border-radius: 15px;
+      box-shadow: 0px 0px 10px 0px #000000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .container {
+      width: 90%;
+    }
+    .divider {
+      filter: blur(1px);
+      margin-top: 40px;
+    }
+    .buttons-row {
+      display: flex;
+      gap: 5px;
+    }
+    .buttons-top_left {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+    }
+    .buttons-top_right {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+    }
+    .btn-modification {
+      width: 13px;
+      height: 13px;
+      border-radius: 50%;
+      border: none;
+      background: white;
+    }
+    .btn-modification:nth-child(2) {
+      background: red;
+    }
+    .btn-modification:nth-child(3) {
+      background: black;
+    }
+    .btn-arrows {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      border: none;
+      background: #989595;
+      display: flex;
+      justify-content: left;
+      align-items: center;
+      padding: 5px;
+      color: white;
+    }
+    .btn-arrows:nth-child(2) {
+      justify-content: right;
+    }
+    .btn-arrows i {
+      font-size: 15px;
+      font-weight: bold;
+    }
+    .search-section {
+      display: flex;
+      flex-direction: column;
+      margin-top: 60px;
+    }
+    .search {
+      border-radius: 5px;
+      padding: 5px;
+      border: none;
+      height: 30px;
+    }
+    .menu-card ul {
+      display: flex;
+      flex-direction: column;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .menu-card ul li {
+      display: flex;
+      align-items: center;
+      border-radius: 10px;
+      height: 15px;
+      gap: 10px;
+      padding: 10px;
+    }
+    .menu-card ul li p {
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .active {
+      color: white;
+      background: rgb(103, 7, 228);
+    }
+    .profile-section {
+      bottom: 10px;
+      position: absolute;
+      display: flex;
+    }
+    .profile-pic {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    .profile-description {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin-left: 10px;
+    }
+    .profile-description h4,
+    h5 {
+      margin: 0;
+      padding: 0;
+    }
+    .profile-description h5 {
+      color: #747272;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div class="menu-card">
+
+    <div class="buttons-row buttons-top_left">
+      <div class="btn-modification"></div>
+      <div class="btn-modification"></div>
+      <div class="btn-modification"></div>
+    </div>
+
+    <div class="buttons-row buttons-top_right">
+      <div class="btn-arrows"><i class="bi bi-chevron-left"></i></div>
+      <div class="btn-arrows"><i class="bi bi-chevron-right"></i></div>
+    </div>
+
+    <div class="container">
+      <div class="search-section">
+        <h2><i class="bi bi-globe-europe-africa"></i> Titulo</h2>
+        <input type="text" class="search" placeholder="Search..." />
+      </div>
+      <hr class="divider" />
+      <h3>Menu</h3>
+      <ul>
+        <li class="active">
+          <i class="bi bi-house"></i>
+          <p>Inicio</p>
+        </li>
+        <li>
+          <i class="bi bi-tools"></i>
+          <p>Servicios</p>
+        </li>
+        <li>
+          <i class="bi bi-bag"></i>
+          <p>Productos</p>
+        </li>
+      </ul>
+    </div>
+    <div class="profile-section">
+      <img class="profile-pic" src="../../../Images/basLogo.jpg" alt="" />
+      <div class="profile-description">
+        <h4>NestorDH</h4>
+        <h5>Copyrigth</h5>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu 9</title>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Poppins, Arial, sans-serif;
+            background-color: hsl(225, 6%, 9%);
+            color: #d4dbe4;
+        }
+        a {
+            text-decoration: none;
+        }
+        button {
+            border: 0;
+            background: none;
+            font-family: inherit;
+            color: inherit;
+            cursor: pointer;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #202124;
+            padding: 0 40px;
+            height: 4.8rem;
+        }
+        nav > .logo {
+            font-size: 26px;
+            font-weight: 600;
+            color: #528fe0;
+        }
+        .dropdowns {
+            display: flex;
+            align-self: stretch;
+        }
+        .dropdown {
+            position: relative;
+            padding: 26px;
+        }
+        .dropdown-button {
+            display: flex;
+            align-items: center;
+            height: 100%;
+            gap: 8px;
+        }
+        .dropdown:hover {
+            background-color: hsl(225, 30%, 12%);
+            cursor: pointer;
+        }
+        .dropdown-button span {
+            font-size: 16px;
+            font-weight: 500;
+        }
+        .dropdown-button i {
+            font-size: 14px;
+        }
+        .dropdown:hover > .dropdown-menu {
+            display: flex;
+            flex-direction: column;
+        }
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            min-width: 100%;
+            background-color: #202124;
+            display: none;
+        }
+        .dropdown-menu button {
+            padding: 12px 24px;
+        }
+        .dropdown-menu button:hover {
+           background-color: hsl(225, 6%, 20%);
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#" class="logo">NestorDH</a>
+        <div class="dropdowns">
+          <div class="dropdown">
+            <button class="dropdown-button">
+              <span>Lenguajes</span>
+              <i class="bi bi-chevron-down"></i>
+            </button>
+            <div class="dropdown-menu">
+              <button>HTML</button>
+              <button>CSS</button>
+              <button>JavaScript</button>
+              <button>Java</button>
+            </div>
+          </div>
+          <div class="dropdown">
+            <button class="dropdown-button">
+              <span>Frameworks</span>
+              <i class="bi bi-chevron-down"></i>
+            </button>
+            <div class="dropdown-menu">
+              <button>React</button>
+              <button>Angular</button>
+              <button>Vue</button>
+              <button>Svelte</button>
+              <button>Node</button>
+            </div>
+          </div>
+          <div class="dropdown">
+            <button class="dropdown-button">
+              <span>Design</span>
+              <i class="bi bi-chevron-down"></i>
+            </button>
+            <div class="dropdown-menu">
+              <button>Figma</button>
+              <button>Adobe XD</button>
+              <button>Photoshop</button>
+              <button>Illustrator</button>
+            </div>
+          </div>
+      </nav>
+    
+</body>
+</html>

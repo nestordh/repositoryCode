@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Boton 02 Redes Sociales Compartir</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css'>
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:700'>
+
+  <style>
+    body {
+      font-family: "Roboto";
+      background-color: #37aff0;
+      text-align: center;
+      color: #f1ce64;
+      font-size: 28px;
+    }
+    a {
+    color: #f1ce64;
+    }
+    .compartir {
+      position: absolute;
+      width: 400px;
+      left: 50%;
+      margin-left: -200px;
+      top: 50%;
+      margin-top: -40px;
+      border-radius: 80px;
+    }
+    .compartir span {
+      width: 200px;
+      line-height: 80px;
+      display: inline-block;
+      font-weight: 700;
+      text-transform: uppercase;
+      position: absolute;
+      left: 50%;
+      margin-left: -100px;
+      opacity: 1;
+      transition: opacity 0.3s ease-in-out;
+      pointer-events: none;
+    }
+    .compartir nav {
+      font-size: 0;
+    }
+    .compartir a {
+      line-height: 80px;
+      width: 80px;
+      text-align: center;
+      display: inline-block;
+      background-color: #ffffff;
+      color: #ffffff;
+      overflow: hidden;
+      opacity: 1;
+      transition: all 0.3s ease-in-out;
+      margin: 0 -20px;
+      box-shadow: 3px 1px 3px rgba(0, 0, 0, 0.1);
+    }
+    .compartir a:nth-child(1) {
+      border-top-left-radius: 40px;
+      border-bottom-left-radius: 40px;
+      margin-left: 0;
+    }
+    .compartir a:nth-child(1):hover {
+      background-color: #61c5ec;
+    }
+    .compartir a:nth-child(2):hover {
+      background-color: #3B5998;
+    }
+    .compartir a:nth-child(3):hover {
+      background-color: #ea4335;
+    }
+    .compartir a:nth-child(4) {
+      border-top-right-radius: 40px;
+      border-bottom-right-radius: 40px;
+      margin-right: 0;
+    }
+    .compartir a:nth-child(4):hover {
+      background-color: #000;
+    }
+    .compartir:hover span, .compartir.hover span {
+      opacity: 0;
+    }
+    .compartir:hover a, .compartir.hover a {
+      border-radius: 50%;
+      margin: 0 10px;
+      color: #f1ce64;
+      font-size: 28px;
+    }
+    .compartir:hover a:hover, .compartir.hover a:hover {
+      color: #fff;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="compartir">
+    <span>Compartir</span>
+    <nav>
+      <a href="#"><i class="fa fa-twitter"></i></a>
+      <a href="#"><i class="fa fa-facebook"></i></a>
+      <a href="#"><i class="fa fa-google"></i></a>
+      <a href="#"><i class="fa fa-github"></i></a>
+    </nav>
+  </div>
+    
+  <script>
+      const share = document.querySelector('.compartir');
+
+      setTimeout(() => {
+        share.classList.add("hover");
+      }, 1000);
+
+      setTimeout(() => {
+        share.classList.remove("hover");
+      }, 3000);
+  </script>
+
+</body>
+</html>

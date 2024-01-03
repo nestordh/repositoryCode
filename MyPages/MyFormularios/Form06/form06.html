@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>formulario con boton escurridizo</title>
+    <style>
+        .container {
+            width: 31.25em;
+            background-color: #444444;
+            padding: 1.4em 3.75em;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            top: 50%;
+            left: 50%;
+            border-radius: 0.7em;
+            box-shadow: 0 1em 4em rgba(212, 234, 255 .2);
+        }
+        .message {
+            font-size: 0.9em;
+            margin-top: 1.5em;
+            color:  #34bd34;
+            visibility: hidden;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <h2>Boton Fantasma</h2>
+        <input type="text" placeholder="Usuario" id="user">
+        <input type="password" placeholder="password" id="password">
+        <button id="submit">Submit</button>
+        <p id="message">Signed up Successfully</p>
+    </div>
+    
+    <script>
+        username.addEventListener("input", ( ) =>{
+            if(!isUsernameValid()) {
+                message.style.visibility = "hidden";
+                password.style.cssText = "border-color: #fe2e2e; background-color: #ffc2c2";
+            } else {
+                password.style.cssText = "border-color: #34bd34; background-color:#c2ffc2";
+            }
+        });
+    </script>
+</body>
+</html>
